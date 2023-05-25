@@ -74,3 +74,6 @@ for x in k_range:
         test[1] += time.perf_counter()-_start 
     print(Clusterization.knn_add_forecast.__name__,x,test[2]/10,test[3]/10)
     print(Clusterization.knn_reglin_forecast.__name__,x,test[0]/10,test[1]/10)
+
+#PRANKED
+#EOF
