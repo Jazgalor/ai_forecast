@@ -6,6 +6,7 @@ from ast import literal_eval
 from modules.algorithms import Clusterization
 from modules.dataProcessing import DataProcessing
 from modules.fetcher import Fetcher
+from tqdm import tqdm
 import argparse
 
 parser = argparse.ArgumentParser()
@@ -30,11 +31,11 @@ def first_time_process(csv_name):
 #function to bulk predict n times
 def predict_n_times(_range,_data,_base,_n, k):
     l = []
-    for i in range(_n):
+    for i in tqdm(range(_n)):
         DataProcessing.normalize_element(_base,_range)
         _base = Clusterization.knn_reglin_forecast(_data,_base,k)
         DataProcessing.denormalize_element(_base,_range)
-        print(f"progress {'#'*(i+1)}{'.'*(_n-i-1)}")
+        # print(f"progress {'#'*(i+1)}{'.'*(_n-i-1)}")
         l.append(tuple(_base))  
     weather_table = pd.DataFrame(l, columns=["temp", "humidity", "precip", "sealevelpressure", "windspeed", "cloudcover"])
     print(weather_table)
