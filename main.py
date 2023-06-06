@@ -10,9 +10,9 @@ import argparse
 
 parser = argparse.ArgumentParser()
 parser.add_argument("-n", "--n-days",
-                    help="predict next n days given. if not specified defaultly will predict 4 days forward")
+                    help="predict next n days given. if not specified 4 days forward is default value")
 parser.add_argument("-k", "--n-neighbours",
-                    help="predict next n days given. if not specified defaultly will predict 4 days forward")
+                    help="predict next n days given. if not specified 48 neighbours is default value")
 parser.add_argument("-d", "--data",
                     help="get real time data", action="store_true")
 args = parser.parse_args()
